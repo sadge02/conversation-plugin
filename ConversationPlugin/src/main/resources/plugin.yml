@@ -1,0 +1,8 @@
+name: ConversationPlugin
+version: '${version}'
+main: minecraft.conversationPlugin.ConversationPlugin
+api-version: '1.21'
+commands:
+  conversation:
+    description: Manages conversations
+    usage: /<command>
