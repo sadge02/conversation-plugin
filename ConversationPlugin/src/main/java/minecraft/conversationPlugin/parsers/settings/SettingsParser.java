@@ -27,8 +27,10 @@ public class SettingsParser {
             boolean endSound = settingsObject.getBoolean(SettingsKeys.END_SOUND.getKey());
             boolean blocking = settingsObject.getBoolean(SettingsKeys.BLOCKING.getKey());
             boolean citizens = settingsObject.getBoolean(SettingsKeys.CITIZENS.getKey());
+            boolean addOnJoin = settingsObject.getBoolean(SettingsKeys.ADD_ON_JOIN.getKey());
+            boolean startOnJoin = settingsObject.getBoolean(SettingsKeys.START_ON_JOIN.getKey());
 
-            return new Settings(startMessage, endMessage, startSound, endSound, blocking, citizens);
+            return new Settings(startMessage, endMessage, startSound, endSound, blocking, citizens, addOnJoin, startOnJoin);
 
         } catch (Exception exception) {
             logger.warning("Failed to parse settings.");
@@ -52,6 +54,8 @@ public class SettingsParser {
         settingsObject.put(SettingsKeys.END_SOUND.getKey(), settings.endSound());
         settingsObject.put(SettingsKeys.BLOCKING.getKey(), settings.blocking());
         settingsObject.put(SettingsKeys.CITIZENS.getKey(), settings.citizens());
+        settingsObject.put(SettingsKeys.ADD_ON_JOIN.getKey(), settings.addOnJoin());
+        settingsObject.put(SettingsKeys.START_ON_JOIN.getKey(), settings.startOnJoin());
 
         return settingsObject;
     }

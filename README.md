@@ -51,6 +51,8 @@ For a player to participate in a conversation, they must first be added to it. T
 
 Each conversation includes several configurable options to improve the player experience and convey relevant information about the conversation itself. Among these options, developers can enable notifications, such as sending messages or playing sound to signal the start or end of a conversation, enhancing clarity for the player.
 
+Player can be added to the conversation thanks to `add_on_join` and `start_on_join` attributes automatically.
+
 An essential setting within this configuration is the ***blocking flag***, which is generally recommended to be set to true in the majority of conversations. This flag prevents nodes from overlapping or interfering with nodes from the same or different conversations, maintaining a coherent flow in scenarios where the player is involved. Disabling this flag can interrupt the intended narrative sequence. It should only be done in cases where supplementary text from supporting characters is desired to enhance the game environment’s realism and to breathe life into the game world. Notably, while the blocking flag prevents interference between blocking nodes, it does not restrict a player from simultaneously engaging in multiple blocking conversations. Additionally, non-blocking nodes will execute even if the player is already involved in a blocking node and can be run simultaneously. If you encounter a problem with a blocking node, a quick relog should solve the issue.
 
 Furthermore, the ***citizens*** flag in conversation settings can be turned on to replace the player's model with a [Citizens plugin](https://www.spigotmc.org/resources/citizens.13811/) NPC. This provides a better, more pleasant experience during cutscenes.
@@ -217,6 +219,8 @@ The main components of a conversation are contained within the Conversation Obje
 - **end_sound**: Determines if a sound is played to the player when the conversation ends.
 - **blocking**: If set to true, this prevents all blocking nodes from initiating until the current node is completed, thereby maintaining a consistent flow. Setting this to false allows nodes to overlap, which can disrupt the interaction unless carefully managed.
 - **citizens**: Enables support for the [Citizens Plugin](https://www.spigotmc.org/resources/citizens.13811/), enhancing player immersion during cutscenes.
+- **start_on_join**: Player will be added to the conversation when he joins the server. He will be added to the conversation and the conversation will start.
+- **add_on_join**: Player will be added to the conversation when he joins the server. He will only be added to the conversation and it has to be started by a trigger or a command.
 
 <sub><sup>[Back to Top](#conversation-plugin)</sup></sub>
 
@@ -1082,7 +1086,7 @@ public enum DisplayTarget {
 
 ## 5. Command Interface
 
-The plugin comes with the `/conversation` command for managing player conversations, handling conversation flow, and managing player-specific requirements and variables. Commands that don’t execute the node will position the player at the node but require a `RUN` command to be executed.
+The plugin comes with the `/conversation` command for managing player conversations, handling conversation flow, and managing player-specific requirements and variables. Commands that don’t execute the node will position the player at the node but require a `RUN` command to be executed. Commands that execute the node ignore triggers and will start the node right away.
 
 Below is an organized breakdown of each command and its purpose.
 

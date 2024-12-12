@@ -10,7 +10,9 @@ public enum SettingsKeys {
     END_MESSAGE("end_message"),
     END_SOUND("end_sound"),
     BLOCKING("blocking"),
-    CITIZENS("citizens");
+    CITIZENS("citizens"),
+    ADD_ON_JOIN("add_on_join"),
+    START_ON_JOIN("start_on_join");
 
     private final String key;
 
