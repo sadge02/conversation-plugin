@@ -63,7 +63,6 @@ public class ReloadCommand {
 
         for (String player : ConversationPlugin.players.keySet()) {
             ConversationPlugin.players.get(player).reset();
-            System.out.println(ConversationPlugin.players.get(player).getInNode());
         }
 
         ConversationParser.loadConversations(conversationsDirectory);
