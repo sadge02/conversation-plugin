@@ -209,7 +209,9 @@ The main components of a conversation are contained within the Conversation Obje
     "start_sound": false,
     "end_sound": false,
     "blocking": true,
-    "citizens": true
+    "citizens": false,
+    "add_on_join": false,
+    "start_on_join": false
 }
 ```
 
@@ -1173,9 +1175,9 @@ Commands for setting and managing player-specific requirements and variables.
 
 Commands to assist in creating, testing, and troubleshooting conversations.
 
-#### Give Tool Command
+#### Give Conversation Tool Command
 
-> `Usage:` `/conversation give tool`
+> `Usage:` `/conversation give conversation tool`
 - Gives the player a conversation tool that provides information on the coordinates of right-clicked blocks or the IDs of right-clicked entities.
 
 #### Print Node Command
